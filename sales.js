@@ -55,3 +55,22 @@ function getCookie(cname) {
     }
     return "";
 }
+
+function calculateReceipt(){
+  var receiptSubtotal =  getCookie("preTax");
+//  Number(receiptSubtotal);
+  var receiptTax = receiptSubtotal * .075;
+//  Number(receiptTax);
+  var receiptTotal;
+  receiptTotal = Number(receiptSubtotal) + Number(receiptTax);
+
+  var subtotal;
+  var tax;
+  var total;
+  subtotal = asCurrency(Number(receiptSubtotal));
+  tax = asCurrency(Number(receiptTax));
+  total = asCurrency(Number(receiptTotal));
+  document.getElementById("sub").innerHTML = subtotal;
+  document.getElementById("tax").innerHTML = tax;
+  document.getElementById("tot").innerHTML = total;
+}
